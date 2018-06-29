@@ -6,43 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/superhero/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
 <body>
-    <header>What in the World - display a shit ton of country data</header>
-    <h1>Countries</h1>
-    <div class="countrySection">
-        <form action=""></form>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="titleAndSubTitle">
+                <a class="navbar-brand" href="index.html">Countries of the World</a>
+                <h7> See how Forest Area Percent effects the countries of the world</h7>
+            </div>
+            <div id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">The App
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-item nav-link" href="index.html">Brochure </a>
+                    <a class="nav-item nav-link" href="about.html">About </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="clearedSection">
+            <h5>Select Some Countries...</h5>
+            <div class="countrySection">
 
-    <h1>Facts</h1>
-    <section class="factSection">
-        <form action="">
-            <input value="forest_area_percent" class="factBoxes" type="checkbox" checked>
-            <label for="">Forest Area Percent</label>
-            <input value="happiness_index" class="factBoxes" type="checkbox">
-            <label for="">Happiness Index</label>
-            <input value="death_rate" class="factBoxes" type="checkbox">
-            <label for="">Death Rate</label>
-            <input value="life_expectancy" class="factBoxes" type="checkbox">
-            <label for="">Life Expectancy</label>
-            <input value="literacy_rate" class="factBoxes" type="checkbox">
-            <label for="">Literacy Rate</label>
-            <input value="population" class="factBoxes" type="checkbox">
-            <label for="">Population</label>
-            <input value="tourist_arrivals" class="factBoxes" type="checkbox">
-            <label for="">Tourist Arrivals</label>
-        </form>
-    </section>
-    <input class="submitButton" type="submit">
-
-    <section class="responseSection">
-        <div class="countryNameResponse">
+            </div>
+            <section class="factSection">
+                <h5>Now Select Some Facts...</h5>
+                <form action="">
+                    <input value="forest_area_percent" class="factBoxes" type="checkbox" checked>
+                    <label for="">Forest Area Percent</label>
+                    <input value="happiness_index" class="factBoxes" type="checkbox">
+                    <label for="">Happiness Index</label>
+                    <input value="death_rate" class="factBoxes" type="checkbox">
+                    <label for="">Death Rate</label>
+                    <input value="life_expectancy" class="factBoxes" type="checkbox">
+                    <label for="">Life Expectancy</label>
+                    <input value="literacy_rate" class="factBoxes" type="checkbox">
+                    <label for="">Literacy Rate</label>
+                    <input value="population" class="factBoxes" type="checkbox">
+                    <label for="">Population</label>
+                    <input value="tourist_arrivals" class="factBoxes" type="checkbox">
+                    <label for="">Tourist Arrivals</label>
+                </form>
+            </section>
+            <input class="submitButton" type="submit">
         </div>
-        <ul class="factListResponse">
-        </ul>
-    </section>
+        <section class="responseSection">
+            <div class="countryNameResponse">
+            </div>
+        </section>
 
     </main>
     <footer></footer>

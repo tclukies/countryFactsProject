@@ -1,0 +1,55 @@
+body {
+  line-height: 1.1;
+}
+header {
+  display: flex;
+  flex: 1;
+}
+.navbar {
+  flex: 1;
+  justify-content: space-between;
+}
+.navbar-nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 200px;
+}
+.titleAndSubTitle {
+  display: flex;
+  flex-direction: column;
+}
+.titleAndSubTitle a {
+  font-size: 3em;
+}
+.navbar-nav .nav-link {
+  justify-content: space-between;
+}
+
+.countrySection {
+  display: flex;
+  flex-flow: column wrap;
+  height: 493px;
+}
+.countryNameAndSelector label {
+  margin: 0;
+}
+countryNameAndSelector {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  width: 150px;
+}
+.factSection h5 {
+  padding-top: 20px;
+}
+
+.countryNameResponse {
+  display: flex;
+}
+
+.countryNameResponse table,
+th,
+td {
+  border: solid black;
+}

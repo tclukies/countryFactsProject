@@ -6,29 +6,24 @@ function accessAPI() {
     .then(addElements);
 
   function addElements(response) {
-    // let noNulls = response.filter(function(country) {
-    //   if (country.forest_area_percent != null) {
-    //     return country;
-    //   }
-    // });
-
     let countryNames = response.map(function(countryItem) {
       return countryItem.countryName;
-    });
-    let countryCodes = response.map(function(countryItem) {
-      return countryItem.countryCode;
     });
     for (let i = 0; i < response.length; i++) {
       let countryNameBoxes = document.createElement("input");
       let countryNameBoxLabels = document.createElement("label");
+      let countryNameAndSelector = document.createElement("div");
+
+      countryNameAndSelector.className = "countryNameAndSelector";
       countryNameBoxes.className = "countryNameBoxes";
       countryNameBoxes.type = "checkbox";
       countryNameBoxes.value = countryNames[i];
       countryNameBoxLabels.textContent = countryNames[i];
-      document.querySelector(".countrySection").appendChild(countryNameBoxes);
+      countryNameAndSelector.appendChild(countryNameBoxes);
+      countryNameAndSelector.appendChild(countryNameBoxLabels);
       document
         .querySelector(".countrySection")
-        .appendChild(countryNameBoxLabels);
+        .appendChild(countryNameAndSelector);
     }
   }
 }
@@ -79,6 +74,10 @@ function displayResponse(response) {
     }
   }
   console.log(selectedCountryFacts);
+
+  document
+    .querySelector("main")
+    .removeChild(document.querySelector(".clearedSection"));
 
   for (let i = 0; i < selectedCountryFacts.length; i++) {
     let countryTable = document.createElement("table");
@@ -191,7 +190,7 @@ function displayResponse(response) {
       let tourismRow = document.createElement("tr");
       let tourismRowTextBox = document.createElement("td");
       let tourismLabelTextbox = document.createElement("td");
-      let tourismLabelText = document.createTextNode("tourism Rate");
+      let tourismLabelText = document.createTextNode("Tourism Rate");
       let tourismRowText = document.createTextNode(
         selectedCountryFacts[i].tourist_arrivals
       );
@@ -203,7 +202,20 @@ function displayResponse(response) {
       countryTable.appendChild(tourismRow);
     }
 
+    countryTable.className = "table-warning";
     document.querySelector(".countryNameResponse").appendChild(countryTable);
+  }
+
+  document.createElement("button");
+
+  var btn = document.createElement("button");
+  var t = document.createTextNode("Start a New Selection");
+  btn.appendChild(t);
+  document.body.appendChild(btn);
+  btn.addEventListener("click", reloadPage);
+
+  function reloadPage() {
+    window.location.reload();
   }
 }
 
