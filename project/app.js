@@ -206,12 +206,11 @@ function displayResponse(response) {
     document.querySelector(".countryNameResponse").appendChild(countryTable);
   }
 
-  document.createElement("button");
-
   var btn = document.createElement("button");
   var t = document.createTextNode("Start a New Selection");
+  btn.className = "newQueryButton";
   btn.appendChild(t);
-  document.body.appendChild(btn);
+  document.querySelector("main").appendChild(btn);
   btn.addEventListener("click", reloadPage);
 
   function reloadPage() {
@@ -219,25 +218,55 @@ function displayResponse(response) {
   }
 }
 
-// for (let i = 0; i < response.length; i++) {
-//   let countryName = document.createElement("h1");
+//   google.charts.load("current", { packages: ["corechart", "bar"] });
+//   google.charts.setOnLoadCallback(drawAxisTickColors);
 
-//   countryName.textContent = response[i].countryName;
-
-//   document.querySelector(".countryNameResponse").appendChild(countryName);
+//   function drawAxisTickColors() {
+//     var data = google.visualization.arrayToDataTable(
+//       for (let i=0; i<Object.keys(selectedCountryFacts).length; i++){
+//         [
+//       ["Country", selectedCountryFacts[i], "2000 Population"],
+//       ["New York City, NY", 8175000, 8008000],
+//       ["Los Angeles, CA", 3792000, 3694000],
+//       ["Chicago, IL", 2695000, 2896000],
+//       ["Houston, TX", 2099000, 1953000],
+//       ["Philadelphia, PA", 1526000, 1517000]
+//       ])
+//   }}
+//     var options = {
+//       title: "Population of Largest U.S. Cities",
+//       chartArea: { width: "50%" },
+//       hAxis: {
+//         title: "Total Population",
+//         minValue: 0,
+//         textStyle: {
+//           bold: true,
+//           fontSize: 12,
+//           color: "#4d4d4d"
+//         },
+//         titleTextStyle: {
+//           bold: true,
+//           fontSize: 18,
+//           color: "#4d4d4d"
+//         }
+//       },
+//       vAxis: {
+//         title: "City",
+//         textStyle: {
+//           fontSize: 14,
+//           bold: true,
+//           color: "#848484"
+//         },
+//         titleTextStyle: {
+//           fontSize: 14,
+//           bold: true,
+//           color: "#848484"
+//         }
+//       }
+//     };
+//     var chart = new google.visualization.BarChart(
+//       document.getElementById("chart_div")
+//     );
+//     chart.draw(data, options);
+//   }
 // }
-
-// let reducedFacts = response.reduce(function(acc, curr) {
-//   delete curr["countryCode"];
-//   delete curr["countryName"];
-//   acc.push(curr);
-//   return acc;
-// }, []);
-// console.log(reducedFacts);
-
-// for (let i = 0; i < reducedFacts.length; i++) {
-//   let factListItem = document.createElement("li");
-
-//   factListItem.textContent = reducedFacts[i].forest_area_percent[0].data;
-
-//   document.querySelector(".factListResponse").appendChild(factListItem);
