@@ -4,29 +4,30 @@ function accessAPI() {
   )
     .then(response => response.json())
     .then(addElements);
+}
 
-  function addElements(response) {
-    let countryNames = response.map(function(countryItem) {
-      return countryItem.countryName;
-    });
-    for (let i = 0; i < response.length; i++) {
-      let countryNameBoxes = document.createElement("input");
-      let countryNameBoxLabels = document.createElement("label");
-      let countryNameAndSelector = document.createElement("div");
+function addElements(response) {
+  let countryNames = response.map(function(countryItem) {
+    return countryItem.countryName;
+  });
+  for (let i = 0; i < response.length; i++) {
+    let countryNameBoxes = document.createElement("input");
+    let countryNameBoxLabels = document.createElement("label");
+    let countryNameAndSelector = document.createElement("div");
 
-      countryNameAndSelector.className = "countryNameAndSelector";
-      countryNameBoxes.className = "countryNameBoxes";
-      countryNameBoxes.type = "checkbox";
-      countryNameBoxes.value = countryNames[i];
-      countryNameBoxLabels.textContent = countryNames[i];
-      countryNameAndSelector.appendChild(countryNameBoxes);
-      countryNameAndSelector.appendChild(countryNameBoxLabels);
-      document
-        .querySelector(".countrySection")
-        .appendChild(countryNameAndSelector);
-    }
+    countryNameAndSelector.className = "countryNameAndSelector";
+    countryNameBoxes.className = "countryNameBoxes";
+    countryNameBoxes.type = "checkbox";
+    countryNameBoxes.value = countryNames[i];
+    countryNameBoxLabels.textContent = countryNames[i];
+    countryNameAndSelector.appendChild(countryNameBoxes);
+    countryNameAndSelector.appendChild(countryNameBoxLabels);
+    document
+      .querySelector(".countrySection")
+      .appendChild(countryNameAndSelector);
   }
 }
+
 accessAPI();
 
 document
@@ -38,7 +39,7 @@ function giveDetailsToQueryString(event) {
   let factURL = "";
 
   for (let i = 0; i < responseFactBoxes.length; i++) {
-    if (responseFactBoxes[i].checked === true) {
+    if (responseFactBoxes[i].checked) {
       factURL += responseFactBoxes[i].value + ",";
     }
   }
@@ -61,7 +62,7 @@ function displayResponse(response) {
   let responseCountryBoxes = document.querySelectorAll(".countryNameBoxes");
   let selectedCountries = [];
   for (let i = 0; i < responseCountryBoxes.length; i++) {
-    if (responseCountryBoxes[i].checked === true) {
+    if (responseCountryBoxes[i].checked) {
       selectedCountries.push(responseCountryBoxes[i].value);
     }
   }
@@ -73,7 +74,6 @@ function displayResponse(response) {
       }
     }
   }
-  console.log(selectedCountryFacts);
 
   document
     .querySelector("main")
@@ -217,56 +217,3 @@ function displayResponse(response) {
     window.location.reload();
   }
 }
-
-//   google.charts.load("current", { packages: ["corechart", "bar"] });
-//   google.charts.setOnLoadCallback(drawAxisTickColors);
-
-//   function drawAxisTickColors() {
-//     var data = google.visualization.arrayToDataTable(
-//       for (let i=0; i<Object.keys(selectedCountryFacts).length; i++){
-//         [
-//       ["Country", selectedCountryFacts[i], "2000 Population"],
-//       ["New York City, NY", 8175000, 8008000],
-//       ["Los Angeles, CA", 3792000, 3694000],
-//       ["Chicago, IL", 2695000, 2896000],
-//       ["Houston, TX", 2099000, 1953000],
-//       ["Philadelphia, PA", 1526000, 1517000]
-//       ])
-//   }}
-//     var options = {
-//       title: "Population of Largest U.S. Cities",
-//       chartArea: { width: "50%" },
-//       hAxis: {
-//         title: "Total Population",
-//         minValue: 0,
-//         textStyle: {
-//           bold: true,
-//           fontSize: 12,
-//           color: "#4d4d4d"
-//         },
-//         titleTextStyle: {
-//           bold: true,
-//           fontSize: 18,
-//           color: "#4d4d4d"
-//         }
-//       },
-//       vAxis: {
-//         title: "City",
-//         textStyle: {
-//           fontSize: 14,
-//           bold: true,
-//           color: "#848484"
-//         },
-//         titleTextStyle: {
-//           fontSize: 14,
-//           bold: true,
-//           color: "#848484"
-//         }
-//       }
-//     };
-//     var chart = new google.visualization.BarChart(
-//       document.getElementById("chart_div")
-//     );
-//     chart.draw(data, options);
-//   }
-// }
