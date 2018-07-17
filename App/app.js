@@ -207,9 +207,9 @@ function displayResponse(response) {
   }
 
   var btn = document.createElement("button");
-  var t = document.createTextNode("Start a New Selection");
+  var btnText = document.createTextNode("Start a New Selection");
   btn.className = "newQueryButton";
-  btn.appendChild(t);
+  btn.appendChild(btnText);
   document.querySelector("main").appendChild(btn);
   btn.addEventListener("click", reloadPage);
 
